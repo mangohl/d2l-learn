@@ -9,6 +9,8 @@ train_iter,test_iter = d2l.load_data_fashion_mnist(batch_size)
 num_inputs=784
 num_outputs=10
 
+#这里权重矩阵W is 786*10
+#每一列对应的是 输出是类i(0-9)所用到的参数
 W = torch.normal(0,0.01,size=(num_inputs,num_outputs),requires_grad=True)
 b = torch.zeros(num_outputs,requires_grad=True)
 
@@ -19,6 +21,10 @@ def softmax(X):
     partition = X_exp.sum(1,keepdim=True)
     return X_exp / partition
 
+
+#X from train_iter is 256*1*28*28
+#这里把X reshape成了256*784
+#X*W+b:256*10
 def net(X):
     return softmax(torch.matmul(X.reshape((-1,W.shape[0])),W) + b)
 
