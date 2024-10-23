@@ -25,7 +25,7 @@ batch_size = 256
 train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size=batch_size)
 #如果没有指定device,就应用模型第一参数所在的设备
 #如果X是列表[X1,X2]，将分别移动
-#X的shape?
+#X的shape?256*1*28*28
 def evaluate_accuracy_gpu(net,data_iter,device=None):
     if isinstance(net,nn.Module):
         net.eval()
