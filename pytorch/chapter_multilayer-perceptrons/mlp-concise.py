@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from d2l import torch as d2l
 
-#第二层的权重矩阵shape(26,784),
+#第二层的权重矩阵shape(256,784),
 #权重矩阵的每一行会产生一个输出值
 net = nn.Sequential(nn.Flatten(),
                     nn.Linear(784,256),
